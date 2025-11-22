@@ -14,7 +14,9 @@ function menu() {
 2. List Records
 3. Update Record
 4. Delete Record
-5. Exit
+5. Export Data
+6. Search Records
+7. Exit
 =====================
   `);
 
@@ -58,6 +60,32 @@ function menu() {
         break;
 
       case '5':
+          console.log('Feature coming soon...');
+          menu();
+          break;
+
+      case '6': // === SEARCH FEATURE ADDED HERE ===
+        rl.question('Enter search keyword: ', keyword => {
+            const allRecords = db.listRecords();
+            const lowerKeyword = keyword.toLowerCase();
+            
+            // Filter records by Name or ID
+            const matches = allRecords.filter(r => 
+                r.name.toLowerCase().includes(lowerKeyword) || 
+                String(r.id).includes(lowerKeyword)
+            );
+
+            if (matches.length === 0) {
+                console.log('No records found.');
+            } else {
+                console.log(`Found ${matches.length} matching records:`);
+                matches.forEach(r => console.log(`ID: ${r.id} | Name: ${r.name} | Value: ${r.value}`));
+            }
+            menu();
+        });
+        break;
+
+      case '7':
         console.log('👋 Exiting NodeVault...');
         rl.close();
         break;
