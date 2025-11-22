@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/hashaambhatti/SCDProject25/issues"
   },
-  "homepage": "https://github.com/hashaambhatti/SCDProject25#readme"
+  "homepage": "https://github.com/hashaambhatti/SCDProject25#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "mongoose": "^9.0.0"
+  }
 }
